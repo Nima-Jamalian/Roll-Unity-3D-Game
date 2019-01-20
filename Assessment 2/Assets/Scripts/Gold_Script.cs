@@ -40,6 +40,7 @@ public class Gold_Script : MonoBehaviour
             //playing sparkel effect
             Instantiate(Sparkel_Effect, transform.position, Quaternion.identity);
             //playing audio
+            //Debug.Log("Audio should play");
             Game_Controller.current.Play_Gold_Collection_Sound();
             gameObject.SetActive(false);
         }

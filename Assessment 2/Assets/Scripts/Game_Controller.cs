@@ -13,6 +13,7 @@ public class Game_Controller : MonoBehaviour
     //for storing position of current new platform
     private Vector3 Current_Platform_Position;
     private AudioSource audioSource;
+
     void Awake()
     {
         GameManeger();
