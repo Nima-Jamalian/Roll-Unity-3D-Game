@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a73b4515bae47e3b896f89ec9c36e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Golds: {fileID: 5204254263157455579, guid: 7fe23a43b2e804535b4bd044647218e7, type: 3}
+  GoldRate: 0.25

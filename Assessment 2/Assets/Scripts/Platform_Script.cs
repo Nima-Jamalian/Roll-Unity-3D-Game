@@ -5,11 +5,23 @@ using UnityEngine;
 public class Platform_Script : MonoBehaviour
 {
     private Rigidbody MyPlatform;
+
+    //for generating the golds
+    [SerializeField]
+    private GameObject Golds;
+    [SerializeField]
+    private float GoldRate;
     // Start is called before the first frame update
     void Start()
     {
         //getting the component
         MyPlatform = GetComponent<Rigidbody>();
+        if(Random.value < GoldRate)
+        {
+            Vector3 temp = transform.position;
+            temp.y += 2f;
+            Instantiate(Golds, temp, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
