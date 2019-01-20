@@ -104,4 +104,7 @@ public class Game_Controller : MonoBehaviour
  * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
  * https://unity3d.com/learn/tutorials/topics/scripting/coroutines
  * https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
+ * https://www.youtube.com/watch?v=iol76dK4znA
+ * https://www.udemy.com/unity-game-development-make-professional-3d-games/learn/v4/t/lecture/6707974?start=0
+ * https://www.youtube.com/watch?v=7jdL5538bEo&list=PLLH3mUGkfFCXps_IYvtPcE9vcvqmGMpRK
  */

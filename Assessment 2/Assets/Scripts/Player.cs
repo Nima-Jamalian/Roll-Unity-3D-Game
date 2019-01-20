@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private Rigidbody My_Player;
@@ -57,6 +57,20 @@ public class Player : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        /*
+        if(Game_Controller.current.Game_Start == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //HighScore, BUG
+                //HigheScore, is not working, I disabled it 
+                //DontDestroyOnLoad(high_score);
+                //running the game again
+                //Time.timeScale = 1;
+            }
+        }
+        */
     }
 
     //checking the input of mouse and keyboard
@@ -95,4 +109,8 @@ public class Player : MonoBehaviour
  * https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html
  * https://docs.unity3d.com/ScriptReference/Input.html
  * https://stackoverflow.com/questions/43323941/inconsistent-line-endings-visual-studio-community-2017
+ * https://www.youtube.com/watch?v=gRVS8XJdSOU&index=1&list=PLX-uZVK_0K_73EIM5VvzfrBUDqztzbARm
+ * https://www.udemy.com/unity-game-development-make-professional-3d-games/learn/v4/t/lecture/6707974?start=0
+ * https://www.youtube.com/watch?v=VbZ9_C4-Qbo
+ * https://www.youtube.com/watch?v=7jdL5538bEo&list=PLLH3mUGkfFCXps_IYvtPcE9vcvqmGMpRK
  */

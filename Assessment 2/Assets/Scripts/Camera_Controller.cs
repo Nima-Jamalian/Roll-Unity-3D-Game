@@ -55,4 +55,7 @@ public class Camera_Controller : MonoBehaviour
  * https://docs.unity3d.com/ScriptReference/Camera.html
  * https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/following-player-camera
  * https://www.youtube.com/watch?v=o8YjVB5MYf8
+ * https://www.udemy.com/unity-game-development-make-professional-3d-games/learn/v4/t/lecture/6707974?start=0
+ * https://www.youtube.com/watch?v=w-8UAppL6JY
+ * https://www.youtube.com/watch?v=7jdL5538bEo&list=PLLH3mUGkfFCXps_IYvtPcE9vcvqmGMpRK
  */
