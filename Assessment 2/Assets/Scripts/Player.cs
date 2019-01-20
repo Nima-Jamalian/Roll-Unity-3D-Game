@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     {
         //calling the input checker function 
         Input_checker();
+        //calling gameover function
+        Game_Over();
     }
 
     //For using the physics components 
@@ -37,6 +39,22 @@ public class Player : MonoBehaviour
             {
                 //Moving the player to right by changing the velocity (speed at z axis)
                 My_Player.velocity = new Vector3(0f, Physics.gravity.y, Speed);
+            }
+        }
+    }
+
+    //checking to see if the game is over
+    void Game_Over()
+    {
+        if (Game_Controller.current.Game_Start)
+        {
+            //if the position of player on Y axis is less that -3 
+            //the the game is over 
+            if(transform.position.y < -8)
+            {
+                Debug.Log("Game over");
+                Game_Controller.current.Game_Start = false;
+                Destroy(gameObject);
             }
         }
     }

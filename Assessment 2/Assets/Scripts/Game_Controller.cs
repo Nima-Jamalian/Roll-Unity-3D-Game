@@ -12,10 +12,12 @@ public class Game_Controller : MonoBehaviour
     private GameObject platform;
     //for storing position of current new platform
     private Vector3 Current_Platform_Position;
-
+    private AudioSource audioSource;
     void Awake()
     {
         GameManeger();
+        //getting gold audio source
+        audioSource = GetComponent<AudioSource>();
         //fixed start position
         Current_Platform_Position = new Vector3(-2, 0, 2);
     }
@@ -38,7 +40,7 @@ public class Game_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void GameManeger()
@@ -75,6 +77,10 @@ public class Game_Controller : MonoBehaviour
         StartCoroutine(Spwan_New_Platforms());
     }
 
+    public void Play_Gold_Collection_Sound()
+    {
+        audioSource.Play();
+    }
     //Spawning new platforms
     IEnumerator Spwan_New_Platforms()
     {

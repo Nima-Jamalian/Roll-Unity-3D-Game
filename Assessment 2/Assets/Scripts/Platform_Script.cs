@@ -45,3 +45,10 @@ public class Platform_Script : MonoBehaviour
     }
 
     }
+
+
+
+/*
+ * References:
+ * https://answers.unity.com/questions/796881/c-how-can-i-let-something-happen-after-a-small-del.html
+ */
