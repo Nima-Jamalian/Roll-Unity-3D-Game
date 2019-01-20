@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     //For using the physics components 
     void FixedUpdate()
     {
-        if (Player_Controller.current.Game_Start)
+        if (Game_Controller.current.Game_Start)
         {
             if (Move_Left)
             {
@@ -51,13 +51,15 @@ public class Player : MonoBehaviour
              * Preventing the game from starting instantly
              * the game start only when you press space or click.
              */
-            if (!Player_Controller.current.Game_Start)
+            if (!Game_Controller.current.Game_Start)
             {
-                Player_Controller.current.Game_Start = true;
+                Game_Controller.current.Game_Start = true;
+                //activate platform generator
+                Game_Controller.current.Activate_Platform_Generator();
             }
         }
         //when the game is playing
-        if (Player_Controller.current.Game_Start)
+        if (Game_Controller.current.Game_Start)
         {
             //changing direction to right and left based on mouse click or space button press
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))

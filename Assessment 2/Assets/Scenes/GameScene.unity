@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 21367970}
   - component: {fileID: 21367969}
   m_Layer: 0
-  m_Name: Player_Controller
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Game_Start: 0
+  plat: {fileID: 2865153503404214360, guid: aba84b86bf46b4481afddfd6a83b8a38, type: 3}
 --- !u!4 &21367970
 Transform:
   m_ObjectHideFlags: 0
@@ -407,8 +408,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260345296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.398, y: 1.29, z: -1.23}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 1.398, y: 1.78, z: -1.23}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -528,7 +529,7 @@ Transform:
   m_GameObject: {fileID: 1726019546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 4}
+  m_LocalScale: {x: 5, y: 3, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
