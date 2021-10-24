@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d71c96cfec7d1489699dea578036d084
+guid: 5e3d1bc4f906cb748b95f647ec194816
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: One Slice
   fontNames:
-  - One Slice
+  - Antonio
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -15,6 +15,22 @@ public class Game_Controller : MonoBehaviour
     private Vector3 Current_Platform_Position;
     private AudioSource audioSource;
 
+    //Color Changing 
+    [SerializeField] private Material platformMat;
+    [SerializeField] private Light dayLight;
+    private Camera mainCamera;
+    private bool camColorLerp;
+    private Color cameraColor;
+    private Color[] platformColorDay;
+    private Color platformColorNight;
+    private int platformColorIndex;
+    private Color platformTrueColor;
+    private float timer;
+    [SerializeField] private float timerInterval = 10f;
+    private float camLerpTimer;
+    private float camLeprInterval = 1f;
+    private int direction = 1;
+
     void Awake()
     {
         GameManeger();
@@ -22,6 +38,17 @@ public class Game_Controller : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //fixed start position
         Current_Platform_Position = new Vector3(-2, 0, 2);
+
+        mainCamera = Camera.main;
+        cameraColor = mainCamera.backgroundColor;
+        platformTrueColor = platformMat.color;
+        platformColorIndex = 0;
+        platformColorDay = new Color[3];
+        platformColorDay[0] = new Color(10 / 256f, 139 / 265f, 203 / 256f);
+        platformColorDay[1] = new Color(10 / 256f, 200 / 265f, 20 / 256f);
+        platformColorDay[2] = new Color(220 / 256f, 170 / 265f, 45 / 256f);
+        platformColorNight = new Color(0, 8 / 256f, 11 / 256f);
+        platformMat.color = platformColorDay[0];
     }
 
     // Start is called before the first frame update
@@ -37,16 +64,18 @@ public class Game_Controller : MonoBehaviour
     {
         //object gets disable when gameobject gets destroyed
         current = null;
+        platformMat.color = platformTrueColor;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+/*        if (Input.GetKeyDown(KeyCode.R))
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("GameScene");
-        }
+        }*/
+        CheckLerpTimer();
     }
 
     void GameManeger()
@@ -78,7 +107,46 @@ public class Game_Controller : MonoBehaviour
         Instantiate(platform, Current_Platform_Position, Quaternion.identity);
     }
 
-    public void Activate_Platform_Generator()
+    void CheckLerpTimer()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > timerInterval)
+        {
+            timer -= timerInterval;
+            camColorLerp = true;
+            camLerpTimer = 0f;
+        }
+
+        if (camColorLerp)
+        {
+            camLerpTimer += Time.deltaTime;
+            float percent = camLerpTimer / camLeprInterval;
+
+            if(direction == 1)
+            {
+                mainCamera.backgroundColor = Color.Lerp(cameraColor, Color.black, percent);
+                platformMat.color = Color.Lerp(platformColorDay[platformColorIndex], platformColorNight, percent);
+                dayLight.intensity = 1f - percent;
+            } else
+            {
+                mainCamera.backgroundColor = Color.Lerp(Color.black, cameraColor, percent);
+                platformMat.color = Color.Lerp(platformColorNight, platformColorDay[platformColorIndex], percent);
+                dayLight.intensity = percent;
+            }
+            if(percent > 0.98f)
+            {
+                camLerpTimer = 1f;
+                direction *= -1;
+                camColorLerp = false;
+                if(direction == -1)
+                {
+                    platformColorIndex = Random.Range(0, platformColorDay.Length);
+                }
+            }
+        }
+    }
+   public void Activate_Platform_Generator()
     {
         StartCoroutine(Spwan_New_Platforms());
     }
@@ -101,15 +169,3 @@ public class Game_Controller : MonoBehaviour
     }
 }
 
-
-/*
- * References:
- * http://wiki.unity3d.com/index.php/Singleton
- * https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager
- * https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
- * https://unity3d.com/learn/tutorials/topics/scripting/coroutines
- * https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
- * https://www.youtube.com/watch?v=iol76dK4znA
- * https://www.udemy.com/unity-game-development-make-professional-3d-games/learn/v4/t/lecture/6707974?start=0
- * https://www.youtube.com/watch?v=7jdL5538bEo&list=PLLH3mUGkfFCXps_IYvtPcE9vcvqmGMpRK
- */

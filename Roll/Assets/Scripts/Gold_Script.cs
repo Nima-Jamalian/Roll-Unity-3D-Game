@@ -9,10 +9,14 @@ public class Gold_Script : MonoBehaviour
 
     [SerializeField]
     private GameObject Sparkel_Effect;
+
+    [SerializeField] private UIManager uIManager;
+    [SerializeField] private Player player;
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
     }
 
     // Update is called once per frame
@@ -37,6 +41,19 @@ public class Gold_Script : MonoBehaviour
         //check if player has collided with gold
         if(target.tag == "Player")
         {
+            uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+            if (uIManager == null)
+            {
+                Debug.LogWarning("UIManager is Null for Gold");
+            }
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            if (uIManager == null)
+            {
+                Debug.LogWarning("Player is Null for Gold");
+            }
+            player.score++;
+            uIManager.DisplayScore(player.score);
+            player.IncreasePlayerSpeed();
             //playing sparkel effect
             Instantiate(Sparkel_Effect, transform.position, Quaternion.identity);
             //playing audio
